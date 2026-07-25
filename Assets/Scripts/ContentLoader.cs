@@ -36,6 +36,14 @@ public class ContentLoader : MonoBehaviour
 
 		if(ContentDeliveryGlobalState.DeliveryService != null)
 		{
+			if(BlobAssetReference<StreamingAssetsCatalogData>.TryRead(Path.Combine(Application.streamingAssetsPath, StreamingAssetsCatalogData.kFilename), StreamingAssetsCatalogData.kVersion, out var streamingAssetsCatalog))
+			{
+				Debug.Log("Adding streaming assets catalog");
+
+				ContentDeliveryGlobalState.DeliveryService.AddDownloadService(new StreamingAssetsContentService(name: "bundle", streamingAssetsCatalog));
+				streamingAssetsCatalog.Dispose();
+			}
+
 			Debug.Log("Downloading content");
 
 			while(ContentDeliveryGlobalState.CurrentContentUpdateState <= ContentDeliveryGlobalState.ContentUpdateState.DownloadingContentSet)
@@ -50,13 +58,20 @@ public class ContentLoader : MonoBehaviour
 				yield return null;
 			}
 
-			int entryCount = 0;
-			long totalBytes = 0;
-			long cachedBytes = 0;
-			long uncachedBytes = 0;
-			ContentDeliveryGlobalState.DeliveryService.AccumulateContentSize(kAllContent, ref entryCount, ref totalBytes, ref cachedBytes, ref uncachedBytes);
+			if(ContentDeliveryGlobalState.DeliveryService != null)
+			{
+				int entryCount = 0;
+				long totalBytes = 0;
+				long cachedBytes = 0;
+				long uncachedBytes = 0;
+				ContentDeliveryGlobalState.DeliveryService.AccumulateContentSize(kAllContent, ref entryCount, ref totalBytes, ref cachedBytes, ref uncachedBytes);
 
-			Debug.Log($"{ContentDeliveryGlobalState.CurrentContentUpdateState}: entryCount={entryCount} totalBytes={totalBytes} cachedBytes={cachedBytes} uncachedBytes={uncachedBytes}");
+				Debug.Log($"{ContentDeliveryGlobalState.CurrentContentUpdateState}: entryCount={entryCount} totalBytes={totalBytes} cachedBytes={cachedBytes} uncachedBytes={uncachedBytes}");
+			}
+			else
+			{
+				Debug.Log("No delivery service");
+			}
 		}
 		else
 		{
