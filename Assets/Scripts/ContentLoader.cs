@@ -1,15 +1,13 @@
 using System.Collections;
 using System.IO;
+using Unity.Entities;
 using Unity.Entities.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ContentLoader : MonoBehaviour
 {
-	private static string ContentCachePath => System.IO.Path.Combine(Application.persistentDataPath, "ContentCache");
-
 	const string kAllContent = "all";
-	const string k_EntitySceneSubDir = "EntityScenes";
 
 	void Start()
 	{
