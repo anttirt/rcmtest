@@ -103,7 +103,7 @@ namespace Unity.Entities.Content
             /// <param name="status">The status of the operation.  This may be modified if the status changes.</param>
             /// <param name="downloadedBytes">The total number of bytes downloaded of the content.</param>
             /// <returns>True if the operation is complete, false if more processing is required.</returns>
-            public bool Process(ref DownloadStatus status, ref long downloadedBytes)
+            public virtual bool Process(ref DownloadStatus status, ref long downloadedBytes)
             {
                 if (IsCancelled)
                 {
@@ -233,7 +233,8 @@ namespace Unity.Entities.Content
             activeDownloads = new LinkedList<DownloadOperation>();
             downloadStates = new Dictionary<RemoteContentLocation, DownloadStatus>();
             createOpFunc = createDownloadOpFunc == null ? () => new DownloadOperationUnityWebRequest() : createDownloadOpFunc;
-            Directory.CreateDirectory(cacheDir);
+            if(!string.IsNullOrWhiteSpace(cacheDir))
+                Directory.CreateDirectory(cacheDir);
         }
 
         /// <summary>
@@ -296,7 +297,7 @@ namespace Unity.Entities.Content
         /// </summary>
         /// <param name="location">The location of the content.</param>
         /// <returns>True if the service can download this specific location.</returns>
-        public bool CanDownload(RemoteContentLocation location)
+        public virtual bool CanDownload(RemoteContentLocation location)
         {
             return location.Type == RemoteContentLocation.LocationType.RemoteURL;
         }
@@ -306,7 +307,7 @@ namespace Unity.Entities.Content
         /// </summary>
         /// <param name="loc">The content location.</param>
         /// <returns>The local path of content.  This does not imply that the content actually exists in the cache.  Use File.Exists or <seealso cref="GetDownloadStatus"/> to determine if the content is cached.</returns>
-        public string ComputeCachePath(RemoteContentLocation loc)
+        public virtual string ComputeCachePath(RemoteContentLocation loc)
         {
             if (!loc.Hash.IsValid)
                 return String.Empty;

@@ -348,6 +348,9 @@ namespace Unity.Entities.Content
                 int deletedFileCount = 0;
                 foreach (var dlSvc in downloadServices)
                 {
+                    if(string.IsNullOrWhiteSpace(dlSvc.Value.CacheRoot))
+                        continue;
+
                     foreach (var file in Directory.GetFiles(dlSvc.Value.CacheRoot, "*.*", SearchOption.AllDirectories))
                     {
                         if (!validPaths.Contains(file))
