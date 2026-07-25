@@ -19,13 +19,20 @@ class StreamingAssetsCatalogPostProcessor
 	: IPostGenerateGradleAndroidProject
 #endif
 {
-	[MenuItem("Assets/Publish/Existing Build (skip StreamingAssets catalog)")]
+	[MenuItem("Assets/Publish/Existing Build (ECS)")]
 	static void ExistingBuildMenuItem()
 	{
 		var buildFolder = EditorUtility.OpenFolderPanel("Select Build To Publish", Path.GetDirectoryName(Application.dataPath), "Builds");
 		if(!string.IsNullOrEmpty(buildFolder))
 		{
-			var streamingAssetsPath = $"{buildFolder}/{PlayerSettings.productName}_Data/StreamingAssets";
+			string streamingAssetsPath;
+#if UNITY_ANDROID
+			streamingAssetsPath = Path.Combine(Path.GetDirectoryName(Application.dataPath), "Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/assets");
+#elif UNITY_IOS
+			streamingAssetsPath = $"{buildFolder}/{PlayerSettings.productName}/Data/Raw";
+#else
+			streamingAssetsPath = $"{buildFolder}/{PlayerSettings.productName}_Data/StreamingAssets";
+#endif
 			PublishContent(streamingAssetsPath, $"{buildFolder}-RemoteContent", f => new string[] { "all" });
 		}
 	}
@@ -38,8 +45,11 @@ class StreamingAssetsCatalogPostProcessor
 			return false;
 		}
 
-		var files = Directory.GetFiles(sourceFolder, "*.*", SearchOption.AllDirectories);
-		files = files.Where(f => !f.EndsWith(StreamingAssetsCatalogData.kFilename)).ToArray();
+		var files =
+			Directory.GetFiles(Path.Combine(sourceFolder, "ContentArchives"), "*.*", SearchOption.AllDirectories)
+			.Concat(Directory.GetFiles(Path.Combine(sourceFolder, "EntityScenes"), "*.*", SearchOption.AllDirectories))
+			.ToArray();
+
 		if (files.Length == 0)
 		{
 			Debug.Log($"PublishContent - Source folder {sourceFolder} is empty.");
