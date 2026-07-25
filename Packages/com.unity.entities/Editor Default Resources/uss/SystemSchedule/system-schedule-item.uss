@@ -1,0 +1,279 @@
+.system-schedule-item__container
+{
+    flex-direction: row;
+    flex-grow:1;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    min-width: 100px;
+}
+
+.system-schedule-item__icon
+{
+    width:16px;
+    height:16px;
+}
+
+.system-schedule-item__column-system-name
+{
+    padding-right: 8px;
+    flex-direction: row;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.system-schedule-item__column-scheduling-name
+{
+    padding-right: 2px;
+    flex-direction: row;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.system-schedule-item__column-namespace
+{
+    padding-right: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-direction: row;
+}
+
+.system-schedule-item__column-entity-count
+{
+    padding-right: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-direction: row;
+}
+
+.system-schedule-item__column-time
+{
+    overflow: hidden;
+    padding-right: 2px;
+    white-space: nowrap;
+    flex-direction: row;
+}
+
+.system-schedule-item__name-label
+{
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -unity-text-overflow-position: end;
+    -unity-text-align: middle-left;
+    padding-right: 10px;
+    min-width: 0;
+}
+
+.system-schedule-item__name-label-normal
+{
+    -unity-font-style: normal;
+}
+
+.system-schedule-item__name-label-bold
+{
+    -unity-font-style: bold;
+}
+
+.system-schedule-item__scheduling-label
+{
+    -unity-text-align: middle-left;
+    padding-left: 6px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.system-schedule-item__namespace-label
+{
+    -unity-text-align: middle-left;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.system-schedule-item__entity-count-label
+{
+    -unity-text-align:upper-center;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.system-schedule-item__time-label
+{
+    -unity-text-align: upper-center;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*** Normal State ***/
+
+.system-schedule-item__icon--system
+{
+    background-image: var(--system-icon);
+}
+
+.system-schedule-item__icon--unmanaged-system
+{
+    background-image: var(--unmanaged-system-icon);
+}
+
+.system-schedule-item__icon--system-group
+{
+    background-image: var(--group-icon);
+}
+
+.system-schedule-item__icon--begin-command-buffer
+{
+    background-image: var(--begin-command-buffer-icon);
+}
+
+.system-schedule-item__icon--end-command-buffer
+{
+    background-image: var(--end-command-buffer-icon);
+}
+
+.system-schedule-item__icon--player-loop
+{
+    background-image: var(--group-icon);
+}
+
+/*** Selected State ***/
+
+.unity-list-view:focus .unity-list-view__item:checked .system-schedule-item__icon--system,
+.unity-tree-view:focus .unity-tree-view__item:checked .system-schedule-item__icon--system
+{
+    background-image: var(--system-icon--selected);
+}
+
+.unity-list-view:focus .unity-list-view__item:checked .system-schedule-item__icon--unmanaged-system,
+.unity-tree-view:focus .unity-tree-view__item:checked .system-schedule-item__icon--unmanaged-system
+{
+    background-image: var(--unmanaged-system-icon--selected);
+}
+
+.unity-list-view:focus .unity-list-view__item:checked .system-schedule-item__icon--system-group,
+.unity-tree-view:focus .unity-tree-view__item:checked .system-schedule-item__icon--system-group
+{
+    background-image: var(--group-icon--selected);
+}
+
+.unity-list-view:focus .unity-list-view__item:checked .system-schedule-item__icon--begin-command-buffer,
+.unity-tree-view:focus .unity-tree-view__item:checked .system-schedule-item__icon--begin-command-buffer
+{
+    background-image: var(--begin-command-buffer-icon--selected);
+}
+
+.unity-list-view:focus .unity-list-view__item:checked .system-schedule-item__icon--end-command-buffer,
+.unity-tree-view:focus .unity-tree-view__item:checked .system-schedule-item__icon--end-command-buffer
+{
+    background-image: var(--end-command-buffer-icon--selected);
+}
+
+.unity-tree-view__item:checked,.unity-list-view__item:checked .system-schedule-item__name-label
+{
+    color: var(--theme-line-selection-text-color);
+}
+
+.unity-tree-view__item:checked,.unity-list-view__item:checked .system-schedule-item__namespace-label
+{
+    color: var(--theme-line-selection-text-color);
+}
+
+.unity-tree-view__item:checked,.unity-list-view__item:checked .system-schedule-item__entity-count-label
+{
+    color: var(--theme-line-selection-text-color);
+}
+
+.unity-tree-view__item:checked,.unity-list-view__item:checked .system-schedule-item__time-label
+{
+    color: var(--theme-line-selection-text-color);
+}
+
+/*** Scheduling Pills ***/
+
+.scheduling-pill {
+    border-radius: 3px;
+    padding: 2px 6px;
+    margin-right: 4px;
+    -unity-text-align: middle-center;
+    font-size: 9px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.scheduling-pill--update-before {
+    background-color: #0F748A;
+    color: #FFFFFF;
+    border-width: 0;
+}
+
+.scheduling-pill--update-after {
+    background-color: #969116;
+    color: #FFFFFF;
+    border-width: 0;
+}
+
+.scheduling-pill--update-before-reverse {
+    background-color: transparent;
+    border-color: #0F748A;
+    border-width: 1px;
+    color: #0F748A;
+}
+
+.scheduling-pill--update-after-reverse {
+    background-color: transparent;
+    border-color: #969116;
+    border-width: 1px;
+    color: #969116;
+}
+
+/*** Scheduling Arrow Indicators ***/
+
+.scheduling-arrow-indicator {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 24px;
+    flex-direction: row;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    cursor: link;
+    background-color: rgba(47, 47, 47, 0.9);
+    border-color: rgba(100, 100, 100, 0.5);
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    padding: 2px 8px;
+}
+
+.scheduling-arrow-indicator--up {
+    top: 22px;
+}
+
+.scheduling-arrow-indicator--down {
+    bottom: 0;
+}
+
+.scheduling-arrow-indicator__icon {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.scheduling-arrow-indicator__icon--up {
+    rotate: 180deg;
+}
+
+.scheduling-arrow-indicator__count-label {
+    font-size: 10px;
+    color: #AAAAAA;
+    margin-left: 4px;
+    -unity-text-align: middle-center;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+

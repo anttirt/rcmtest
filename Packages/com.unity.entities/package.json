@@ -1,0 +1,27 @@
+{
+  "name": "com.unity.entities",
+  "displayName": "Entities",
+  "version": "6.5.0",
+  "dependencies": {
+    "com.unity.burst": "1.8.25",
+    "com.unity.collections": "6.5.0",
+    "com.unity.nuget.mono-cecil": "1.11.6",
+    "com.unity.profiling.core": "1.0.3",
+    "com.unity.scriptablebuildpipeline": "1.23.1",
+    "com.unity.test-framework.performance": "3.2.0",
+    "com.unity.modules.assetbundle": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.uielements": "1.0.0",
+    "com.unity.modules.unityanalytics": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.hierarchy": "1.0.0"
+  },
+  "description": "The Entities package provides a modern Entity Component System (ECS) implementation with a basic set of systems and components made for Unity.",
+  "keywords": [
+    "entities",
+    "dots",
+    "unity"
+  ],
+  "_fingerprint": "0633f08e59db81bd8046cf03b799fc1ca002aa8b"
+}

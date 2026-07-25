@@ -1,0 +1,42 @@
+.hierarchy-item--entity-node .hierarchy-item__icon{
+    background-image: var(--hierarchy-entity-icon);
+}
+
+.hierarchy-item--subscene-node .hierarchy-item__icon{
+    background-image: var(--scene-icon);
+}
+
+.hierarchy-item--world-node .hierarchy-item__icon{
+    background-image: var(--hierarchy-world-icon);
+}
+
+.hierarchy-item--prefab .hierarchy-item__name
+{
+    color: var(--prefab-font-color);
+}
+
+.hierarchy-item--prefab-root .hierarchy-item__icon
+{
+    background-image: var(--prefab-entity-icon);
+}
+
+.unity-list-view:focus .unity-list-view__item:checked .hierarchy-item__icon--entity,
+.unity-tree-view:focus .unity-tree-view__item:checked .hierarchy-item__icon--entity
+{
+    background-image: var(--hierarchy-entity-icon--selected);
+}
+.unity-list-view:focus .unity-list-view__item:checked .hierarchy-item--world-node,
+.unity-tree-view:focus .unity-tree-view__item:checked .hierarchy-item--world-node
+{
+    background-image: var(--hierarchy-world-icon--selected);
+}
+.unity-list-view:focus .unity-list-view__item:checked .hierarchy-item--prefab-root .hierarchy-item__icon--entity,
+.unity-tree-view:focus .unity-tree-view__item:checked .hierarchy-item--prefab-root .hierarchy-item__icon--entity
+{
+    background-image: var(--prefab-entity-icon--selected);
+}
+.unity-list-view:focus .unity-list-view__item:checked .hierarchy-item--prefab-root .hierarchy-item__icon--gameobject,
+.unity-tree-view:focus .unity-tree-view__item:checked .hierarchy-item--prefab-root .hierarchy-item__icon--gameobject
+{
+    background-image: var(--prefab-gameobject-icon--selected);
+}

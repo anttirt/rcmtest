@@ -1,0 +1,4 @@
+<UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <uie:Toolbar class="system-schedule-treeview-header">
+    </uie:Toolbar>
+</UXML>

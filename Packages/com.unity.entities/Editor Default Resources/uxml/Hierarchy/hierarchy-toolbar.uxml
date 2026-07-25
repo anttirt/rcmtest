@@ -1,0 +1,7 @@
+﻿<UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <uie:Toolbar class="hierarchy-toolbar__container">
+        <ui:VisualElement name="Left Side" class="hierarchy-toolbar__left" />
+        <ui:VisualElement name="Right Side" class="hierarchy-toolbar__right" />
+    </uie:Toolbar>
+    <ui:HelpBox name="deprecation-warning" message-type="Warning" style="flex-shrink: 0"/>
+</UXML>

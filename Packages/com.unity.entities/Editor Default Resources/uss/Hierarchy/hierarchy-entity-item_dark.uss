@@ -1,0 +1,8 @@
+:root {
+    --hierarchy-entity-icon: url("../../icons/dark/Entity/Entity.png");
+    --hierarchy-entity-icon--selected: url("../../icons/dark/Entity/Entity.png");
+    --prefab-entity-icon: url("../../icons/dark/Entity/EntityPrefab.png");
+    --hierarchy-world-icon: url("../../icons/dark/Entity/EntityWorld.png");
+    --hierarchy-world-icon--selected: url("../../icons/selected/Entity/dark/EntityWorld_On.png");
+    --prefab-font-color: #81B4FF;
+}

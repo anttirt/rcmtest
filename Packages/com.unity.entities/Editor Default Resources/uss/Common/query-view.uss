@@ -1,0 +1,26 @@
+
+.query-view__empty {
+    margin: 0;
+    padding: 3px;
+    -unity-font-style: italic;
+}
+
+.query-view__toggle-content {
+    padding-left: 18px;
+}
+
+.query-view__toggle {
+    background-color: var(--section-background-color);
+    border-top-width: 1px;
+    border-top-color: var(--section-border-top-color);
+    border-bottom-width: 1px;
+    border-bottom-color: var(--section-border-bottom-color);
+}
+
+.query-view__header-bold {
+    -unity-font-style: bold;
+}
+
+.query-view__foldout-content-padding {
+    padding-left: 0;
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Unity.Entities.Editor.Properties",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Collections",
+        "Unity.Properties",
+        "Unity.Entities",
+        "Unity.Entities.UI.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
