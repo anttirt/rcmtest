@@ -80,12 +80,6 @@ partial struct PrefabSpawnSystem : ISystem
 
 			if(ps.ValueRW.loadRequested)
 			{
-				if(ps.ValueRW.batchMaterialID != default)
-					state.World.GetExistingSystemManaged<EntitiesGraphicsSystem>().UnregisterMaterial(ps.ValueRW.batchMaterialID);
-
-				if(ps.ValueRW.batchMeshID != default)
-					state.World.GetExistingSystemManaged<EntitiesGraphicsSystem>().UnregisterMesh(ps.ValueRW.batchMeshID);
-
 				ps.ValueRW.material.Release();
 				ps.ValueRW.mesh.Release();
 
