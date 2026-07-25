@@ -26,7 +26,8 @@ public class ContentLoader : MonoBehaviour
 			remoteUrlRoot = GetRemoteContentPublishURL();
 			localCachePath = Path.Combine(Application.persistentDataPath, "ContentCache");
 
-			Directory.Delete(localCachePath, true);
+			if(Directory.Exists(localCachePath))
+				Directory.Delete(localCachePath, true);
 		}
 
 		RuntimeContentSystem.LoadContentCatalog(
